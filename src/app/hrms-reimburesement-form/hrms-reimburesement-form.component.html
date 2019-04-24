@@ -1,0 +1,94 @@
+<form [formGroup]="reimburesementForm">
+  <div class="shadow-box">
+    <h5 class="padding-top">Reimburesement Form</h5>
+    <hr />
+    <div class="row">
+      <div class="col-6">
+        <label>
+          <b> Name: Saili Jawale </b>
+        </label>
+      </div>
+      <div class="col-6">
+        <label>
+          <b> Date: {{todayDate}} </b>
+        </label>
+      </div>
+    </div>
+    <hr />
+    <div formArrayName="reimburesement_details">
+      <div class="row" *ngFor="let item of reimburesementDetails.controls; let i=index" [formGroupName]="i">
+        <label class="col-2">
+          Date <input class="form-control" type='date' formControlName="date" useValueAsDate />
+        </label>
+        <label class="col-2">
+          Amount <input class="form-control" formControlName="amount" />
+        </label>
+        <label class="col-1">
+          Currency <br />
+          <select formControlName="currency" class="form-control">
+            <option value="Rs">Rs</option>
+            <option value="$">$</option>
+          </select>
+        </label>
+        <span class="col-2">
+          Upload Bill<input type="file" formControlName="fileName" class="fileSet form-control" required
+            accept=".pdf, .docx, .jpeg, .png, .jpg" id="singleFile" #singleFile name="Add" />
+        </span>
+        <label class="col-2">
+          Description <textarea class="form-control" rows="2" formControlName="description"></textarea>
+        </label>
+        <label class="col-2">
+          Client Recovery <br/> <input class="form-check-input marginLeft-5" type="checkbox" formControlName="clientRecovery">
+        </label>
+      </div>
+    </div>
+    <hr />
+    <div>Total : 3000</div>
+    <hr />
+    <div class="row">
+      <span class="col-1">
+        <button type="button" class="btn btn-secondary" (click)="addRow()">Add</button>
+      </span>
+      <span class="col-1">
+        <button type="button" class="btn btn-secondary" (click)="deleteRow(pointIndex)">Delete</button>
+      </span>
+    </div>
+    <hr />
+    <div><label>Manager's Approval : XYZ</label></div>
+    <div><label>BU NO. : 6</label></div>
+    <div><label>BU Head : Ashutosh</label></div>
+    <div>
+      <label class="display-flex">Project : <input class="form-control col-6 marginLeft-5" type='text'
+          formControlName="projectName" />
+      </label>
+    </div>
+    <!-- <div>
+      <label class="display-flex">Client Recovery:
+        <div class="form-check marginLeft-5">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="Yes" formControlName="clientRecovery">Yes
+          </label>
+        </div>
+        <div class="form-check marginLeft-5">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" value="No" formControlName="clientRecovery">No
+          </label>
+        </div>
+      </label>
+    </div> -->
+    <hr />
+    <div class="row justify-content-center align-items-center">
+      <span class="col-2">
+        <button type="button" class="btn btn-primary">Save As Draft</button>
+      </span>
+      <span class="col-1">
+        <button type="button" class="btn btn-primary">Submit</button>
+      </span>
+      <span class="col-1">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </span>
+    </div>
+  </div>
+</form>
+
+{{ this.reimburesementForm.value | json }}

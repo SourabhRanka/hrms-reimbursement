@@ -1,0 +1,53 @@
+<div class="margin-20">
+  <h5>My Reimburesements</h5>
+  <div>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ele of myArray">
+          <th scope="row">4/16/2019</th>
+          <td>Team lunch</td>
+          <td>In Progress</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <th colspan="3">Total Expnses</th>
+          <td>3000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr />
+  <h5>Pending Approvals</h5>
+  <div>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Date</th>
+          <th scope="col">Description</th>
+          <th scope="col">Status</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ele of myArray">
+          <td><a routerLink="/approval">Carl Henson</a></td>
+          <td scope="row"><a routerLink="/approval">4/16/2019</a></td>
+          <td><a routerLink="/approval">Team lunch</a></td>
+          <td><a routerLink="/approval">In Progress</a></td>
+          <td><a routerLink="/approval">1000</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a routerLink="/reimburesement-form"><button type="button" class="btn btn-primary">Apply for
+      Reimburesements</button></a>
+</div>

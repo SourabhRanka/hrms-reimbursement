@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HrmsReimburesementFormComponent } from './hrms-reimburesement-form/hrms-reimburesement-form.component';
+import { MyReimburesementsComponent } from './my-reimburesements/my-reimburesements.component';
+import { ApprovalScreenComponent } from './approval-screen/approval-screen.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HrmsReimburesementFormComponent,
+    MyReimburesementsComponent,
+    ApprovalScreenComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

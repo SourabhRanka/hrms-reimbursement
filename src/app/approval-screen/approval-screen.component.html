@@ -1,0 +1,75 @@
+<div class="shadow-box">
+  <h5 class="padding-top">Approval Screen</h5>
+  <hr />
+  <div class="row">
+    <div class="col-6">
+      <label>
+        <b> Name: Saili Jawale </b>
+      </label>
+    </div>
+    <div class="col-6">
+      <label>
+        <b> Date: {{todayDate}} </b>
+      </label>
+    </div>
+  </div>
+  <hr />
+  <div>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Description</th>
+          <th scope="col">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ele of myArray">
+          <th scope="row">4/16/2019</th>
+          <td>Team lunch</td>
+          <td>1000</td>
+        </tr>
+        <tr>
+          <th colspan="2">Reimburesement Total</th>
+          <td>3000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <hr />
+  <form [formGroup]="balanceAmountsForm">
+    <label class="display-flex">Less Unallowable Expenses (NOT REIMBURSEABLE) : <input
+        class="form-control col-2 marginLeft-5" type='number' formControlName="notReimburesableAmount" /></label>
+    <label class="display-flex">Balance : <input class="form-control col-2 marginLeft-5" type='number'
+        formControlName="balance" /></label>
+    <label class="display-flex">Advance Received From Synerzip : <input class="form-control col-2 marginLeft-5"
+        type='number' formControlName="advanceAmount" /></label>
+    <label class="display-flex">Balance Due To Employee / Synerzip : <input class="form-control col-2 marginLeft-5"
+        type='number' formControlName="balanceAmount" /></label>
+    <hr />
+    <div><label>Manager's Approval : XYZ</label></div>
+    <div><label>BU NO. : 6</label></div>
+    <div><label>BU Head : Ashutosh</label></div>
+    <div>
+      <label class="display-flex">Project : XYZ Project Name </label>
+    </div>
+    <div>
+      <label class="display-flex">Client Recovery: Yes/No</label>
+    </div>
+    <hr />
+    <div class="row justify-content-center align-items-center">
+      <span class="col-2">
+        <button type="button" class="btn btn-success">Approve</button>
+      </span>
+      <span class="col-1">
+        <button type="button" class="btn btn-danger">Reject</button>
+      </span>
+      <span class="col-1">
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      </span>
+    </div>
+  </form>
+</div>
+
+{{ this.balanceAmountsForm.value | json }}
+
