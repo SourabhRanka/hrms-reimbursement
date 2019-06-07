@@ -6,12 +6,12 @@ import {ApprovalScreenComponent} from './approval-screen/approval-screen.compone
 
 const routes: Routes = [
   { path: 'reimburesement-form', component: HrmsReimburesementFormComponent },
-  { path: 'my-reimburesement', component: MyReimburesementsComponent },
-  { path: 'approval', component: ApprovalScreenComponent },
-  { path: '',
-    redirectTo: '/my-reimburesement',
-    pathMatch: 'full'
-  }
+  { path: '', component: MyReimburesementsComponent },
+  { path: 'approval', component: ApprovalScreenComponent }
+  // { path: '',
+  //   redirectTo: '/',
+  //   pathMatch: 'full'
+  // }
 ];
 
 @NgModule({

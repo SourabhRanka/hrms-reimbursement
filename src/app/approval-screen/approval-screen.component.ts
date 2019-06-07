@@ -24,11 +24,11 @@ export class ApprovalScreenComponent implements OnInit {
   ngOnInit() {
     this.myArray = [1,2,3];
     let date = new Date();
-    this.todayDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() ;
+    this.todayDate = (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear();
   }
 
   onCancel = () => {
-    this.router.navigateByUrl('/my-reimburesement');
+    this.router.navigateByUrl('/my-reimbursement');
   }
 
 }

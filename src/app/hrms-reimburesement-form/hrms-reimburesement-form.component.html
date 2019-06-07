@@ -38,7 +38,8 @@
           Description <textarea class="form-control" rows="2" formControlName="description"></textarea>
         </label>
         <label class="col-2">
-          Client Recovery <br/> <input class="form-check-input marginLeft-5" type="checkbox" formControlName="clientRecovery">
+          Client Recovery <br /> <input class="form-check-input marginLeft-5" type="checkbox"
+            formControlName="clientRecovery">
         </label>
       </div>
     </div>
@@ -54,28 +55,30 @@
       </span>
     </div>
     <hr />
-    <div><label>Manager's Approval : XYZ</label></div>
-    <div><label>BU NO. : 6</label></div>
-    <div><label>BU Head : Ashutosh</label></div>
+    <div>
+      <label class="display-flex">Manager's Approval : 
+        <select formControlName="manager" class="form-control col-4 marginLeft-5">
+          <option *ngFor="let manager of employeeData.managers" [value]="manager.id">
+            {{manager?.employeeName}}
+          </option>
+        </select>
+      </label>
+    </div>
+    <div>
+        <label class="display-flex">HR Approval : 
+          <select formControlName="hr" class="form-control col-4 marginLeft-5">
+            <option *ngFor="let hr of employeeData.hr" [value]="hr.id">
+              {{hr?.employeeName}}
+            </option>
+          </select>
+        </label>
+      </div>
+    <div><label>BU : {{ employeeData?.buhead?.employeeName }}</label></div>
     <div>
       <label class="display-flex">Project : <input class="form-control col-6 marginLeft-5" type='text'
           formControlName="projectName" />
       </label>
     </div>
-    <!-- <div>
-      <label class="display-flex">Client Recovery:
-        <div class="form-check marginLeft-5">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" value="Yes" formControlName="clientRecovery">Yes
-          </label>
-        </div>
-        <div class="form-check marginLeft-5">
-          <label class="form-check-label">
-            <input type="radio" class="form-check-input" value="No" formControlName="clientRecovery">No
-          </label>
-        </div>
-      </label>
-    </div> -->
     <hr />
     <div class="row justify-content-center align-items-center">
       <span class="col-2">
