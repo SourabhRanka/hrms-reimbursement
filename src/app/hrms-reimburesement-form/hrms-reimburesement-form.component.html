@@ -15,10 +15,10 @@
       </div>
     </div>
     <hr />
-    <div formArrayName="reimburesement_details">
+    <div formArrayName="reimbursementDetails">
       <div class="row" *ngFor="let item of reimburesementDetails.controls; let i=index" [formGroupName]="i">
         <label class="col-2">
-          Date <input class="form-control" type='date' formControlName="date" useValueAsDate />
+          Date <input class="form-control" type='date' formControlName="reimbursementDate" useValueAsDate />
         </label>
         <label class="col-2">
           Amount <input class="form-control" formControlName="amount" />
@@ -31,15 +31,14 @@
           </select>
         </label>
         <span class="col-2">
-          Upload Bill<input type="file" formControlName="fileName" class="fileSet form-control" required
-            accept=".pdf, .docx, .jpeg, .png, .jpg" id="singleFile" #singleFile name="Add" />
+          Upload Bill<input type="file"  class="fileSet form-control" required accept=".pdf, .docx, .jpeg, .png, .jpg"
+            id="singleFile" #singleFile name="Add" />
         </span>
         <label class="col-2">
           Description <textarea class="form-control" rows="2" formControlName="description"></textarea>
         </label>
         <label class="col-2">
-          Client Recovery <br /> <input class="form-check-input marginLeft-5" type="checkbox"
-            formControlName="clientRecovery">
+          Client Recovery <br /> <input class="form-check-input marginLeft-5" type="checkbox" formControlName="clientRecovery">
         </label>
       </div>
     </div>
@@ -56,8 +55,8 @@
     </div>
     <hr />
     <div>
-      <label class="display-flex">Manager's Approval : 
-        <select formControlName="manager" class="form-control col-4 marginLeft-5">
+      <label class="display-flex">Manager's Approval :
+        <select formControlName="managerId" class="form-control col-4 marginLeft-5">
           <option *ngFor="let manager of employeeData.managers" [value]="manager.id">
             {{manager?.employeeName}}
           </option>
@@ -65,18 +64,21 @@
       </label>
     </div>
     <div>
-        <label class="display-flex">HR Approval : 
-          <select formControlName="hr" class="form-control col-4 marginLeft-5">
-            <option *ngFor="let hr of employeeData.hr" [value]="hr.id">
-              {{hr?.employeeName}}
-            </option>
-          </select>
-        </label>
-      </div>
+      <label class="display-flex">HR Approval :
+        <select formControlName="hrid" class="form-control col-4 marginLeft-5">
+          <option *ngFor="let hr of employeeData.hr" [value]="hr.id">
+            {{hr?.employeeName}}
+          </option>
+        </select>
+      </label>
+    </div>
     <div><label>BU : {{ employeeData?.buhead?.employeeName }}</label></div>
     <div>
-      <label class="display-flex">Project : <input class="form-control col-6 marginLeft-5" type='text'
-          formControlName="projectName" />
+      <label class="display-flex">Project : <input class="form-control col-6 marginLeft-5" type='text' formControlName="project" />
+      </label>
+    </div>
+    <div>
+      <label class="display-flex">Description : <input class="form-control col-6 marginLeft-5" type='text' formControlName="description" />
       </label>
     </div>
     <hr />
@@ -85,7 +87,7 @@
         <button type="button" class="btn btn-primary">Save As Draft</button>
       </span>
       <span class="col-1">
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" (click)="submitReimbursement()">Submit</button>
       </span>
       <span class="col-1">
         <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
@@ -95,3 +97,5 @@
 </form>
 
 {{ this.reimburesementForm.value | json }}
+
+{{this.data | json}}
